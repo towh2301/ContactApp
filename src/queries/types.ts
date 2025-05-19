@@ -1,25 +1,19 @@
 export type ContactResponse = {
-	name: {
-		title: string;
-		first: string;
-		last: string;
-	};
+	name: Name;
 	email: string;
 	phone: string;
 	cell: string;
-	picture: {
-		large: string;
-		medium: string;
-		thumbnail: string;
-	};
+	picture: Picture;
 };
 
-export type TabParamList = {
-	Contacts: undefined;
-	Favorite: undefined;
+type Name = {
+	title: string;
+	first: string;
+	last: string;
 };
 
-export type RootStackParamList = {
-	Welcome: undefined;
-	Main: undefined;
+type Picture = {
+	large: string;
+	medium: string;
+	thumbnail: string;
 };

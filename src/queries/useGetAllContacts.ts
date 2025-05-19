@@ -3,18 +3,20 @@ import { contactApis } from ".";
 import { ContactResponse } from "./types";
 
 export const useGetAllContact = () => {
-	const { data, isLoading, isFetching, isError, error } =
-		useQuery<ContactResponse>({
-			queryKey: ["GET_ALL_CONTACTS"],
-			queryFn: () => contactApis.getAllContacts(),
-			staleTime: 1000 * 60 * 5,
-		});
+	const { data, isLoading, isFetching, isError, error, isSuccess } = useQuery<
+		ContactResponse[]
+	>({
+		queryKey: ["GET_ALL_CONTACTS"],
+		queryFn: () => contactApis.getAllContacts(),
+		staleTime: 1000 * 60 * 5,
+	});
 
 	return {
-		contact: data || [],
+		contacts: data || [],
 		isLoading,
 		isFetching,
 		isError,
 		error,
+		isSuccess,
 	};
 };

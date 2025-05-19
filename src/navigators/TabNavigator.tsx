@@ -2,9 +2,9 @@ import { AppTheme } from "@/app/styles";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TabParamList } from "../queries/types";
 import { ContactScreen } from "../screens/contact/ContactScreen";
 import { FavoriteContactScreen } from "../screens/contact/FavoriteContactScreen";
+import { TabParamList } from "./helpers";
 
 const Tab = createBottomTabNavigator<TabParamList>();
 

@@ -4,8 +4,8 @@ const useApis = (baseUrl: string) => {
 	const publicApi = httpPublicRequest(baseUrl);
 
 	const getAllContacts = async () => {
-		const contacts = await publicApi.get("/api/?results=50");
-		return contacts?.data;
+		const contacts = await publicApi.get("/api/?results=30");
+		return contacts?.data.results; // Adjust if necessary
 	};
 
 	return {
