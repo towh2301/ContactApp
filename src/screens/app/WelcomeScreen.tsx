@@ -1,5 +1,5 @@
 import styles from "@/app/styles";
-import { RootStackParamList } from "@/src/types/navigation";
+import { RootStackParamList } from "@/src/queries/types";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";

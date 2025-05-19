@@ -2,9 +2,9 @@ import { store } from "@/src/store/redux/store";
 import React from "react";
 import { Provider } from "react-redux";
 
+import { RootStackParamList } from "@/src/queries/types";
 import MainScreen from "@/src/screens/app/MainScreen";
 import WelcomeScreen from "@/src/screens/app/WelcomeScreen";
-import { RootStackParamList } from "@/src/types/navigation";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

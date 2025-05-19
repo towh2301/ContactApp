@@ -13,3 +13,13 @@ export type ContactResponse = {
 		thumbnail: string;
 	};
 };
+
+export type TabParamList = {
+	Contacts: undefined;
+	Favorite: undefined;
+};
+
+export type RootStackParamList = {
+	Welcome: undefined;
+	Main: undefined;
+};
