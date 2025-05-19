@@ -1,16 +1,18 @@
-import { ContactResponse } from "@/src/queries/types";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { ContactParamList } from "@/src/navigators/helpers";
+import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-type ProfileScreenRouteParams = {
-	contact: ContactResponse;
-};
+type ProfileScreenRouteParams = StackScreenProps<
+	ContactParamList,
+	"ContactProfile"
+>;
 
-const ProfileScreen = () => {
-	const navigation = useNavigation();
-	const route = useRoute();
-	const { contact } = route.params as ProfileScreenRouteParams;
+const ProfileScreen: React.FC<ProfileScreenRouteParams> = ({
+	route,
+	navigation,
+}) => {
+	const { contact } = route.params;
 
 	return (
 		<View style={styles.container}>

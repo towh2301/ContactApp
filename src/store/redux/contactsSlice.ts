@@ -1,23 +1,23 @@
+import { Contact } from "@/src/types/Contact";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ContactResponse } from "./../../queries/types";
 
-type ContactsState = {
-	contacts: ContactResponse[];
+type ContactState = {
+	contacts: Contact[];
 };
 
-const initialState: ContactsState = {
+const initialState: ContactState = {
 	contacts: [],
 };
 
-const contactsSlice = createSlice({
+const contactSlice = createSlice({
 	name: "contacts",
 	initialState,
 	reducers: {
-		setContacts: (state, action: PayloadAction<ContactResponse[]>) => {
+		setContacts: (state, action: PayloadAction<Contact[]>) => {
 			state.contacts = action.payload;
 		},
 	},
 });
 
-export const { setContacts } = contactsSlice.actions;
-export default contactsSlice.reducer;
+export const { setContacts } = contactSlice.actions;
+export default contactSlice.reducer;

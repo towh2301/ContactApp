@@ -8,7 +8,6 @@ export type TabParamList = {
 export type RootStackParamList = {
 	Welcome: undefined;
 	Main: undefined;
-	ContactProfile: { contact: ContactResponse };
 };
 
 export type ContactParamList = {

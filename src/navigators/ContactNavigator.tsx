@@ -1,49 +1,45 @@
-import { RouteProp } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AppTheme } from "@/app/styles";
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { ContactScreen } from "../screens/contact/ContactScreen";
 import { FavoriteContactScreen } from "../screens/contact/FavoriteContactScreen";
 import ProfileScreen from "../screens/contact/ProfileScreen";
 import { ContactParamList } from "./helpers";
 
-const Stack = createNativeStackNavigator<ContactParamList>();
+const ContactStack = createStackNavigator<ContactParamList>();
 
 const ContactNavigator = () => {
 	return (
-		<Stack.Navigator
+		<ContactStack.Navigator
 			initialRouteName="ContactScreen"
 			screenOptions={{
 				headerStyle: {
-					backgroundColor: "#f4511e",
+					backgroundColor: AppTheme.colors.background,
 				},
-				headerTintColor: "#fff",
+				headerTintColor: AppTheme.colors.text,
 				headerTitleStyle: {
 					fontWeight: "bold",
 				},
 			}}
 		>
-			<Stack.Screen
+			<ContactStack.Screen
 				name="ContactScreen"
 				component={ContactScreen}
-				options={{ title: "Contacts" }}
+				options={{ title: "Home" }}
 			/>
-			<Stack.Screen
+			<ContactStack.Screen
 				name="ContactProfile"
 				component={ProfileScreen}
-				options={({
-					route,
-				}: {
-					route: RouteProp<ContactParamList, "ContactProfile">;
-				}) => ({
-					title: route.params.contact.name.first || "Contact Profile",
-				})}
+				options={{
+					title: "Contact Profile",
+				}}
 			/>
-			<Stack.Screen
+			<ContactStack.Screen
 				name="FavoriteContactScreen"
 				component={FavoriteContactScreen}
 				options={{ title: "Favorite contacts" }}
 			/>
-		</Stack.Navigator>
+		</ContactStack.Navigator>
 	);
 };
 

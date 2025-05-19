@@ -17,3 +17,13 @@ type Picture = {
 	medium: string;
 	thumbnail: string;
 };
+
+export interface Contact {
+	id: string;
+	name: Name;
+	email?: string;
+	phone: string;
+	cell?: string;
+	picture?: Picture;
+	isFavorite?: boolean;
+}

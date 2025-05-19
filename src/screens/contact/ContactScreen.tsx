@@ -3,7 +3,7 @@ import { ContactParamList } from "@/src/navigators/helpers";
 import { ContactResponse } from "@/src/queries/types";
 import { useGetAllContact } from "@/src/queries/useGetAllContacts";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { useCallback } from "react";
 import { ActivityIndicator, FlatList, SafeAreaView, Text } from "react-native";
 import ContactCard from "./ContactCard";
@@ -11,7 +11,7 @@ import ContactCard from "./ContactCard";
 export const ContactScreen = () => {
 	// All hooks called unconditionally at the top
 	const navigation =
-		useNavigation<NativeStackNavigationProp<ContactParamList>>();
+		useNavigation<StackNavigationProp<ContactParamList, "ContactScreen">>();
 	const { contacts, isError, isFetching, isLoading, error } =
 		useGetAllContact();
 

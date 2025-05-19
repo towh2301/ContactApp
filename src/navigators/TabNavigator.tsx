@@ -2,8 +2,8 @@ import { AppTheme } from "@/app/styles";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { ContactScreen } from "../screens/contact/ContactScreen";
 import { FavoriteContactScreen } from "../screens/contact/FavoriteContactScreen";
+import ContactNavigator from "./ContactNavigator";
 import { TabParamList } from "./helpers";
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -32,11 +32,12 @@ const TabNavigator = () => {
 					paddingTop: 10,
 				},
 				animation: "shift",
+				headerShown: false,
 			})}
 		>
 			<Tab.Screen
 				name="Contacts"
-				component={ContactScreen}
+				component={ContactNavigator}
 				options={{
 					headerShown: false,
 					tabBarLabel: "Contacts",

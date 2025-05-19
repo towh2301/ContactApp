@@ -20,18 +20,48 @@ const WelcomeScreen = () => {
 	const navigation = useNavigation<WelcomeScreenNavigationProp>();
 
 	return (
-		<SafeAreaView style={[styles.container, styles.center, styles.padding]}>
+		<SafeAreaView style={[styles.container]}>
 			<StatusBar barStyle="dark-content" />
 			<View style={styles.content}>
+				<View style={styles.card}>
+					<Text style={{ color: "white", fontSize: 30 }}>📘</Text>
+				</View>
 				<Text style={styles.title}>Contact App</Text>
-				<Text style={styles.subtitle}>
-					Contact App - Lab 4 - CSE441
+				<Text
+					style={[
+						styles.padding,
+						{
+							textAlign: "center",
+							fontSize: 18,
+							fontWeight: "bold",
+						},
+					]}
+				>
+					Manage all your contacts in one place
+					{"\n"}Lab 4 - CSE441
 				</Text>
+
 				<TouchableOpacity
-					style={styles.button}
+					style={{
+						backgroundColor: "#007bff",
+						paddingVertical: 15,
+						paddingHorizontal: 30,
+						borderRadius: 25,
+						width: "80%",
+						alignItems: "center",
+						elevation: 3,
+					}}
 					onPress={() => navigation.navigate("Main")}
 				>
-					<Text style={styles.buttonText}>Start</Text>
+					<Text
+						style={{
+							color: "white",
+							fontSize: 18,
+							fontWeight: "600",
+						}}
+					>
+						Get Started
+					</Text>
 				</TouchableOpacity>
 			</View>
 		</SafeAreaView>
