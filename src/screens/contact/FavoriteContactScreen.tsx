@@ -15,10 +15,7 @@ import {
 import ContactCard from "./ContactCard";
 
 export const FavoriteContactScreen = () => {
-	const navigation =
-		useNavigation<
-			StackNavigationProp<ContactParamList, "FavoriteContactScreen">
-		>();
+	const navigation = useNavigation<StackNavigationProp<ContactParamList, "FavoriteContactScreen">>();
 	const { favorites, loading, isFavorite, toggleFavorite } = useFavorites();
 
 	const handleContactPress = useCallback(
@@ -46,23 +43,10 @@ export const FavoriteContactScreen = () => {
 	if (favorites.length === 0) {
 		return (
 			<SafeAreaView style={[styles.container, styles.padding]}>
-				<View
-					style={{
-						flex: 1,
-						justifyContent: "center",
-						alignItems: "center",
-					}}
-				>
-					<Text
-						style={{
-							fontSize: 18,
-							color: "#666",
-							textAlign: "center",
-						}}
-					>
+				<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+					<Text style={{ fontSize: 18, color: "#666", textAlign: "center" }}>
 						No favorite contacts yet.{"\n"}
-						Tap the star icon on any contact to add them to your
-						favorites.
+						Tap the star icon on any contact to add them to your favorites.
 					</Text>
 				</View>
 			</SafeAreaView>
@@ -71,24 +55,6 @@ export const FavoriteContactScreen = () => {
 
 	return (
 		<SafeAreaView style={[styles.container]}>
-			<View
-				style={{
-					padding: 16,
-					backgroundColor: "#f8f9fa",
-					borderBottomWidth: 1,
-					borderBottomColor: "#e9ecef",
-				}}
-			>
-				<Text
-					style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}
-				>
-					Favorite Contacts
-				</Text>
-				<Text style={{ fontSize: 14, color: "#666", marginTop: 4 }}>
-					{favorites.length}{" "}
-					{favorites.length === 1 ? "contact" : "contacts"}
-				</Text>
-			</View>
 			<FlatList
 				data={favorites}
 				keyExtractor={(item, index) => item.email || index.toString()}

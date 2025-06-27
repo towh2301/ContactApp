@@ -2,8 +2,8 @@ import { AppTheme } from "@/app/styles";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { FavoriteContactScreen } from "../screens/contact/FavoriteContactScreen";
 import ContactNavigator from "./ContactNavigator";
+import FavoriteNavigator from "./FavoriteNavigator";
 import { TabParamList } from "./helpers";
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -47,7 +47,7 @@ const TabNavigator = () => {
 			/>
 			<Tab.Screen
 				name="Favorite"
-				component={FavoriteContactScreen}
+				component={FavoriteNavigator}
 				options={{
 					headerShown: false,
 					tabBarLabel: "Favorite",

@@ -8,10 +8,7 @@ type ProfileScreenRouteParams = StackScreenProps<
 	"ContactProfile"
 >;
 
-const ProfileScreen: React.FC<ProfileScreenRouteParams> = ({
-	route,
-	navigation,
-}) => {
+const ProfileScreen: React.FC<ProfileScreenRouteParams> = ({ route }) => {
 	const { contact } = route.params;
 
 	return (

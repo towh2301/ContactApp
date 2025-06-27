@@ -1,16 +1,16 @@
 import { AppTheme } from "@/app/styles";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { ContactScreen } from "../screens/contact/ContactScreen";
+import { FavoriteContactScreen } from "../screens/contact/FavoriteContactScreen";
 import ProfileScreen from "../screens/contact/ProfileScreen";
 import { ContactParamList } from "./helpers";
 
-const ContactStack = createStackNavigator<ContactParamList>();
+const FavoriteStack = createStackNavigator<ContactParamList>();
 
-const ContactNavigator = () => {
+const FavoriteNavigator = () => {
 	return (
-		<ContactStack.Navigator
-			initialRouteName="ContactScreen"
+		<FavoriteStack.Navigator
+			initialRouteName="FavoriteContactScreen"
 			screenOptions={{
 				headerStyle: {
 					backgroundColor: AppTheme.colors.background,
@@ -21,20 +21,20 @@ const ContactNavigator = () => {
 				},
 			}}
 		>
-			<ContactStack.Screen
-				name="ContactScreen"
-				component={ContactScreen}
-				options={{ title: "Home" }}
+			<FavoriteStack.Screen
+				name="FavoriteContactScreen"
+				component={FavoriteContactScreen}
+				options={{ title: "Favorite Contacts" }}
 			/>
-			<ContactStack.Screen
+			<FavoriteStack.Screen
 				name="ContactProfile"
 				component={ProfileScreen}
 				options={{
 					title: "Contact Profile",
 				}}
 			/>
-		</ContactStack.Navigator>
+		</FavoriteStack.Navigator>
 	);
 };
 
-export default ContactNavigator;
+export default FavoriteNavigator;
