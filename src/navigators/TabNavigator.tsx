@@ -16,6 +16,8 @@ const TabNavigator = () => {
 					let iconName: string;
 					if (route.name === "Contacts") {
 						iconName = focused ? "home" : "home-outline";
+					} else if (route.name === "Favorite") {
+						iconName = focused ? "star" : "star-outline";
 					} else {
 						iconName = focused ? "person" : "person-outline";
 					}

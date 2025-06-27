@@ -1,4 +1,5 @@
 import styles from "@/app/styles";
+import { useFavorites } from "@/src/hooks/useFavorites";
 import { ContactParamList } from "@/src/navigators/helpers";
 import { ContactResponse } from "@/src/queries/types";
 import { useGetAllContact } from "@/src/queries/useGetAllContacts";
@@ -14,12 +15,20 @@ export const ContactScreen = () => {
 		useNavigation<StackNavigationProp<ContactParamList, "ContactScreen">>();
 	const { contacts, isError, isFetching, isLoading, error } =
 		useGetAllContact();
+	const { isFavorite, toggleFavorite } = useFavorites();
 
 	const handleContactPress = useCallback(
 		(contact: ContactResponse) => {
 			navigation.navigate("ContactProfile", { contact });
 		},
 		[navigation]
+	);
+
+	const handleToggleFavorite = useCallback(
+		async (contact: ContactResponse) => {
+			await toggleFavorite(contact);
+		},
+		[toggleFavorite]
 	);
 
 	// Loading state
@@ -50,6 +59,8 @@ export const ContactScreen = () => {
 					<ContactCard
 						contact={item}
 						onPress={() => handleContactPress(item)}
+						isFavorite={isFavorite(item.email)}
+						onToggleFavorite={handleToggleFavorite}
 					/>
 				)}
 			/>
